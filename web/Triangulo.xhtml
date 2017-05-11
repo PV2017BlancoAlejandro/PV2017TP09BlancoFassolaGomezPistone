@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TP 9</title>
+    </h:head>
+    <h:body>
+          <p:panel id="pnlTriangulo"
+                 header="Determinación de un Triangulo"
+                 style="width: 500px"
+                 footer="Escuela de Minas">
+            <h:form id="frmTriangulo">
+                <h:panelGrid id="tblTriangulo" columns="4">
+                    <p:outputLabel id="lblA1" value="A("/>
+                    <p:inputText id="txtA1x" value="#{trianguloFormBean.x1}" size="3"/>
+                    <p:inputText id="txtA1y" value="#{trianguloFormBean.y1}" size="3"/>
+                      <p:outputLabel id="lblA2" value=")"/>
+                      
+                      <p:outputLabel id="lblB1" value="B("/>
+                      <p:inputText id="txtB1x" value="#{trianguloFormBean.x2}" size="3"/>
+                      <p:inputText id="txtB1y" value="#{trianguloFormBean.y2}" size="3"/>
+                       <p:outputLabel id="lblB2" value=")"/>
+                       
+                       <p:outputLabel id="lblC1" value="C("/>
+                       <p:inputText id="txtC1x" value="#{trianguloFormBean.x3}" size="3"/>
+                       <p:inputText id="txtC1y" value="#{trianguloFormBean.y3}" size="3"/>
+                      
+                      <p:outputLabel id="lblC2" value=")"/>
+                    <p:commandButton id="btnCalcular" value="Calcular" update="lblValorTriangulo"
+                                     action="#{trianguloFormBean.ingresarPuntos()}"/>
+                    <p:outputLabel id="lblValorTriangulo" value="#{trianguloFormBean.esTriangulo}"/>
+                </h:panelGrid>
+                
+            </h:form> 
+              <a href="./faces/index.xhtml">
+                  <button> Regresar </button>
+              </a>
+        </p:panel>
+    </h:body>
+</html>
