@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>tp9-zapatillas</title>
+    </h:head>
+    <h:body>
+        <p:panel id="pnlZapatilla" header="Zapatillas">
+            <h:form id="frmZapatilla">
+                <p:panelGrid id="tblBoton" columns="1">
+                    <p:commandButton id="btnAgregarZapatilla"
+                                     value="Agregar"
+                                     oncomplete="PF('agregarZapatilla').show()"
+                                     update="tblMuestraZapatilla"/>
+                    
+                    
+                </p:panelGrid>
+                <p:panelGrid id="tblMuestraZapatilla" columns="2">
+                    <p:dataTable id="dtTblZapatilla"
+                                 value=""
+                                 var="cadaZapatilla"
+                                 emptyMessage="No hay zapatillas en la Base de Datos">
+                        <p:column headerText="MARCA">
+                            <p:outputLabel value=""/>
+                        </p:column>
+                        <p:column headerText="TIPO">
+                            <p:outputLabel value=""/>
+                        </p:column>
+                        
+                    </p:dataTable>
+                </p:panelGrid>
+            </h:form>      
+        </p:panel>
+        <p:dialog id="dlgaltaZapatilla" widgetVar="agregarZapatilla"
+                  header="Nueva Zapatilla" resizable="false"
+                  showEffect="explode" hideEffect="explode"
+            modal="true">
+           <p:growl id="mensajesAltaZapatilla" showDetail="false"
+                     showSummary="true" sticky="false"/>
+            <h:form id="frmAltaZapatilla">
+                <p:panelGrid id="tblAltaZapatilla" columns="2">
+                    
+                   
+                    
+                     <p:outputLabel id="lblMARCA" value="MARCA: "/>
+                     <p:selectOneMenu id="MARCA"
+                                      value=""
+                                      panelStyle="width:180px" effect="fade"
+                                      style="width:160px" filter="true">
+                         <f:selectItems value=""/>
+                     </p:selectOneMenu>
+                     <p:commandButton id="btnAgregarZapatilla" value="Agregar"
+                                      actionListener="}"
+                                      update=":frmZapatilla :mensajesAltaZapatilla"
+                                      oncomplete="PF('agregarZapatilla').hide()">
+                         <p:confirm header="Pedido de Confirmacion"
+                                    message="¿Confirma Agregar Zapatilla?" icon="ui-icon-alert"/>
+                     </p:commandButton>
+                     <p:commandButton id="btnCerrarAltaZapatilla"
+                                      value="Salir"
+                                      oncomplete="PF('agregarZapatilla').hide()"/>
+                </p:panelGrid>
+            </h:form>            
+        </p:dialog>
+    </h:body>
+</html>
+
