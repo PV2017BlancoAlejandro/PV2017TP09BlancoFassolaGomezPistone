@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-         <title>TP 9-libro</title>
+         <title>TP 9</title>
     </h:head>
     <h:body>
         <p:panel id="pnlLibros" header="Libros">
@@ -133,13 +133,17 @@ and open the template in the editor.
                          hideEffect="fade">
             <h:form id="frmConfirmacionOperacionLibro">
                 <p:commandButton value="SI" type="button"
-                                 styleClass="ui-confirmdialog-yes" icon="ui-icon-close"
+                                 styleClass="ui-confirmdialog-yes" icon="ui-icon-open"
                                  style="float: right;"/>
                 <p:commandButton value="NO" type="button"
                                  styleClass="ui-confirmdialog-no" icon="ui-icon-close"
                                  style="float: right;"/>
                 
         </h:form>
+            
         </p:confirmDialog>
+         <a href="./faces/index.xhtml">
+                  <button> Regresar </button>
+              </a>
     </h:body>                 
 </html>

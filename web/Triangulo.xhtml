@@ -28,10 +28,12 @@
                        <p:inputText id="txtC1y" value="#{trianguloFormBean.y3}" size="3"/>
                       
                       <p:outputLabel id="lblC2" value=")"/>
-                    <p:commandButton id="btnCalcular" value="Calcular" update="lblValorTriangulo"
+                    <p:commandButton id="btnCalcular" value="Calcular" update="lblValorTriangulo lblPerimetro"
                                      action="#{trianguloFormBean.ingresarPuntos()}"/>
-                    <p:outputLabel id="lblValorTriangulo" value="#{trianguloFormBean.esTriangulo}"/>
+             <p:outputLabel id="lblValorTriangulo" value="#{trianguloFormBean.esTriangulo}"/>
+                    <p:outputLabel id="lblPerimetro" value="Perimetro: #{trianguloFormBean.perimetro}"/>       
                 </h:panelGrid>
+            
                 
             </h:form> 
               <a href="./faces/index.xhtml">

@@ -5,6 +5,7 @@
  */
 package aplicacion.bean.form;
 
+import aplicacion.modelo.dominio.Distancia;
 import aplicacion.modelo.dominio.Punto;
 import aplicacion.modelo.dominio.Triangulo;
 import java.io.Serializable;
@@ -26,7 +27,8 @@ public class TrianguloFormBean implements Serializable {
     private double y3;
     private Triangulo unTriangulo;
     private String esTriangulo;
-    
+    private double perimetro;
+    private Distancia distancia;
 
     /**
      * Creates a new instance of TrianguloFormBean
@@ -37,12 +39,14 @@ public class TrianguloFormBean implements Serializable {
     public void ingresarPuntos (){
         setEsTriangulo("No es Triangulo");
         Punto unPuntoA = new Punto(getX1(),getY1());
-        Punto unPuntoB = new Punto(getX1(),getY1());
-        Punto unPuntoC = new Punto(getX1(),getY1());
+        Punto unPuntoB = new Punto(getX2(),getY2());
+        Punto unPuntoC = new Punto(getX3(),getY3());
         unTriangulo = new Triangulo();
+        setDistancia(new Distancia());
         
         if (unTriangulo.verificarTriangulo(unPuntoA, unPuntoB, unPuntoC)){
             setEsTriangulo("Es Triangulo");
+            setPerimetro(getDistancia().calcularDistancia(unPuntoA, unPuntoB)+getDistancia().calcularDistancia(unPuntoB, unPuntoC)+getDistancia().calcularDistancia(unPuntoA, unPuntoC));
         }
     }
     /**
@@ -155,6 +159,34 @@ public class TrianguloFormBean implements Serializable {
      */
     public void setEsTriangulo(String esTriangulo) {
         this.esTriangulo = esTriangulo;
+    }
+
+    /**
+     * @return the perimetro
+     */
+    public double getPerimetro() {
+        return perimetro;
+    }
+
+    /**
+     * @param perimetro the perimetro to set
+     */
+    public void setPerimetro(double perimetro) {
+        this.perimetro = perimetro;
+    }
+
+    /**
+     * @return the distancia
+     */
+    public Distancia getDistancia() {
+        return distancia;
+    }
+
+    /**
+     * @param distancia the distancia to set
+     */
+    public void setDistancia(Distancia distancia) {
+        this.distancia = distancia;
     }
     
 }
