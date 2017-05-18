@@ -12,15 +12,15 @@ import java.io.Serializable;
  * @author Alumno
  */
 public class Productos implements Serializable {
-    private String codigo;
     private String nombre;
+    private String codigo;
     private double preciounit;
     private String cuota;
 
     public Productos() {
     }
 
-    public Productos(String codigo, String nombre, double preciounit, String cuota) {
+    public Productos(String nombre, String codigo, double preciounit, String cuota) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.preciounit = preciounit;

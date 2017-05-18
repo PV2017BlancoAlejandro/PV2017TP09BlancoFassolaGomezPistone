@@ -20,8 +20,8 @@ import javax.faces.bean.ViewScoped;
 public class ProductosFormBean {
 private ColeccionProductos productos;
 private Productos producto;
-private String unCodigo;
 private String unNombre;
+private String unCodigo;
 private double unPrecio;
 private String unaCuota;
 private ArrayList <String> cuotas;
