@@ -20,14 +20,14 @@
                 </p:panelGrid>
                 <p:panelGrid id="tblMuestraZapatilla" columns="2">
                     <p:dataTable id="dtTblZapatilla"
-                                 value=""
+                                 value="#{zapatillaFormBean.zapas.zapas}"
                                  var="cadaZapatilla"
                                  emptyMessage="No hay zapatillas en la Base de Datos">
                         <p:column headerText="MARCA">
-                            <p:outputLabel value=""/>
+                            <p:outputLabel value="#{cadaZapatilla.marca}"/>
                         </p:column>
                         <p:column headerText="TIPO">
-                            <p:outputLabel value=""/>
+                            <p:outputLabel value="#{cadaZapatilla.tipo}"/>
                         </p:column>
                         
                     </p:dataTable>
@@ -42,18 +42,23 @@
                      showSummary="true" sticky="false"/>
             <h:form id="frmAltaZapatilla">
                 <p:panelGrid id="tblAltaZapatilla" columns="2">
-                    
-                   
-                    
-                     <p:outputLabel id="lblMARCA" value="MARCA: "/>
-                     <p:selectOneMenu id="MARCA"
-                                      value=""
+                     
+                  <p:outputLabel id="lblTIPO" value="TIPO: "/>
+                     <p:selectOneMenu id="TIPO"
+                                      value="#{zapatillaFormBean.unTipo}"
                                       panelStyle="width:180px" effect="fade"
                                       style="width:160px" filter="true">
-                         <f:selectItems value=""/>
+                         <f:selectItems value="#{zapatillaFormBean.tipo}"/>
+                     </p:selectOneMenu>
+                     <p:outputLabel id="lblMARCA" value="MARCA: "/>
+                     <p:selectOneMenu id="MARCA"
+                                      value="#{zapatillaFormBean.unaMarca}"
+                                      panelStyle="width:180px" effect="fade"
+                                      style="width:160px" filter="true">
+                         <f:selectItems value="#{zapatillaFormBean.marca}"/>
                      </p:selectOneMenu>
                      <p:commandButton id="btnAgregarZapatilla" value="Agregar"
-                                      actionListener="}"
+                                      actionListener="#{zapatillaFormBean.agregarZapatilla()}"
                                       update=":frmZapatilla :mensajesAltaZapatilla"
                                       oncomplete="PF('agregarZapatilla').hide()">
                          <p:confirm header="Pedido de Confirmacion"
@@ -65,6 +70,19 @@
                 </p:panelGrid>
             </h:form>            
         </p:dialog>
+        <p:confirmDialog id="confirmacionDialogoLibro"
+                         global="true" showEffect="fade"
+                         hideEffect="fade">
+            <h:form id="frmConfirmacionOperacionZapatilla">
+                <p:commandButton value="SI" type="button"
+                                 styleClass="ui-confirmdialog-yes" icon="ui-icon-close"
+                                 style="float: right;"/>
+                <p:commandButton value="NO" type="button"
+                                 styleClass="ui-confirmdialog-no" icon="ui-icon-close"
+                                 style="float: right;"/>
+                
+        </h:form>
+        </p:confirmDialog>
     </h:body>
 </html>
 

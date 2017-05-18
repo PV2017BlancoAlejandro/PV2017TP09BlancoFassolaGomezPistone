@@ -24,6 +24,7 @@ public class Zapatilla implements Serializable {
     }
 
     
+    
     /**
      * @return the Marca
      */

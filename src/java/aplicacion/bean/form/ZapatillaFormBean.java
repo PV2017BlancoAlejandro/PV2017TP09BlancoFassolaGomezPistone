@@ -20,28 +20,35 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class ZapatillaFormBean implements Serializable {
+private ColeccionZapatillas zapas;
 private Zapatilla zapatilla;
 private ArrayList<String> marca;
+private ArrayList<String> tipo;
+private boolean tip;
 private boolean marc;
-private ColeccionZapatillas zapatillas;
 private String unaMarca;
-    private String unTipo;
+private String unTipo;
     /**
      * Creates a new instance of ZapatillaFormBean
      */
     public ZapatillaFormBean() {
-        zapatillas = new ColeccionZapatillas();
+    zapas = new ColeccionZapatillas();
+    tipo= new ArrayList();
+    tipo.add("Original");
+    tipo.add("Copia");
+    tip=false;
     marca = new ArrayList ();
     marca.add("Adidas");
     marca.add("Nike");
     marca.add("Topper");
     marca.add("Reebok");
     marca.add("DC");
+    marca.add("otra");
     marc = false;
     }
     public void agregarZapatilla(){
-        setZapatilla(new Zapatilla(getUnaMarca(),getUnTipo()));
-                getZapatilla().agregarZapatilla(getZapatilla());
+    setZapatilla(new Zapatilla(getUnaMarca(),getUnTipo()));
+             getZapas().agregarZapatillas(getZapatilla());
     }
 
     /**
@@ -75,7 +82,7 @@ private String unaMarca;
     /**
      * @return the zapatilla
      */
-    public ColeccionZapatillas getZapatilla() {
+    public Zapatilla getZapatilla() {
         return zapatilla;
     }
 
@@ -83,7 +90,7 @@ private String unaMarca;
      * @param zapatilla the zapatilla to set
      */
     public void setZapatilla(ColeccionZapatillas zapatilla) {
-        this.zapatilla = zapatilla;
+        this.setZapatilla(zapatilla);
     }
 
     /**
@@ -112,5 +119,54 @@ private String unaMarca;
      */
     public void setUnTipo(String unTipo) {
         this.unTipo = unTipo;
+    }
+
+    /**
+     * @return the zapas
+     */
+    public ColeccionZapatillas getZapas() {
+        return zapas;
+    }
+
+    /**
+     * @param zapas the zapas to set
+     */
+    public void setZapas(ColeccionZapatillas zapas) {
+        this.zapas = zapas;
+    }
+
+    /**
+     * @param zapatilla the zapatilla to set
+     */
+    public void setZapatilla(Zapatilla zapatilla) {
+        this.zapatilla = zapatilla;
+    }
+
+    /**
+     * @return the tipo
+     */
+    public ArrayList<String> getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(ArrayList<String> tipo) {
+        this.tipo = tipo;
+    }
+
+    /**
+     * @return the tip
+     */
+    public boolean isTip() {
+        return tip;
+    }
+
+    /**
+     * @param tip the tip to set
+     */
+    public void setTip(boolean tip) {
+        this.tip = tip;
     }
 }
